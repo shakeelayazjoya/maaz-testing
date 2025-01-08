@@ -1,12 +1,17 @@
+import React, { useState } from "react";
 import { check } from "../assets";
 import { pricing } from "../constants";
-import { useNavigate } from "react-router-dom";
+import ContactUsModal from "./ContactUsModal";
 
 const PricingList = () => {
-  const navigate = useNavigate();
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleRedirect = (id) => {
-    navigate(`/pricing/${id}`); // Redirects to a dynamic route based on the item's ID
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   return (
@@ -16,14 +21,14 @@ const PricingList = () => {
           {pricing.map((item) => (
             <div
               key={item.id}
-              onClick={() => handleRedirect(item.id)} // Add onClick handler
-              className="w-[19rem] max-lg:w-full h-full px-6 bg-n-8 border border-n-6 rounded-[2rem] lg:w-auto even:py-14 odd:py-8 odd:my-4 [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3 cursor-pointer" // Add cursor-pointer for better UX
+              className="w-[19rem] max-lg:w-full h-full px-6 bg-n-8 border border-n-6 rounded-[2rem] lg:w-auto even:py-14 odd:py-8 odd:my-4 [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3 cursor-pointer"
+              onClick={handleOpenModal} // Open modal on click
             >
               <div className="flex items-center justify-center w-3/2 p-5 bg-white border border-gray-300 shadow-md">
                 <img
-                  src={item.image} // Use item.image to display the correct image
+                  src={item.image}
                   alt="Sample"
-                  className="w-full h-48 object-cover" // Apply consistent styling
+                  className="w-full h-48 object-cover"
                 />
               </div>
 
@@ -48,6 +53,13 @@ const PricingList = () => {
           ))}
         </div>
       </div>
+
+      {/* Render the ContactUsModal */}
+      <ContactUsModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        top="25px"
+      />
     </>
   );
 };

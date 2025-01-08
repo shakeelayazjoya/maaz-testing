@@ -39,6 +39,7 @@ const Hero = () => {
     opacity: 0.8;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     text-align: center;
+    pointer-events: none; /* Prevent hover on text */
   }
 
   .image-wrapper {
@@ -137,8 +138,7 @@ const Hero = () => {
         return "GAMER DEMO";
       case 4:
         return "BLOGGER ";
-      default:
-        return "HORR THEME"; // Default text when no image is hovered
+      // Default text when no image is hovered
     }
   };
 

@@ -4,7 +4,8 @@ import { socials } from "../constants";
 const Footer = () => {
   return (
     <Section crosses className="!px-0 !py-10">
-      <div className="text-center py-4 space-y-5">
+      {/*
+        <div className="text-center py-4 space-y-5">
         <h1 className="text-2xl font-semibold ">
           Subscribe for New And Updates{" "}
         </h1>
@@ -18,6 +19,7 @@ const Footer = () => {
           Subscribe
         </button>
       </div>
+        */}
       <div
         style={{
           display: "flex",

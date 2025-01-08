@@ -75,9 +75,9 @@ const ContactUsModal = ({ isOpen, onClose, top = "260px" }) => {
   return (
     <div className="modal-overlay" onClick={onClose} style={{ top: top }}>
       <div
-        className="modal-content"
+        className="modal-content sm:h-auto h-[500px] sm:overflow-hidden overflow-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{ height: "auto", padding: "40px" }}
+        style={{ padding: "40px" }}
       >
         <h2 style={{ color: "white", marginBottom: "20px" }}>{"Contact Us"}</h2>
         {notification && (
@@ -89,7 +89,10 @@ const ContactUsModal = ({ isOpen, onClose, top = "260px" }) => {
           <div
             style={{ display: "flex", flexDirection: "column", gap: "20px" }}
           >
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div
+              style={{ display: "flex", gap: "20px" }}
+              className="flex md:flex-row flex-col"
+            >
               <div style={formGroupStyle}>
                 <label style={labelStyle}>Name</label>
                 <input
